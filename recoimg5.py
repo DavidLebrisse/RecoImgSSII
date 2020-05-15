@@ -33,6 +33,9 @@ cat2 = "chien3"
 cat3 = "formule1"
 cat4 = "motoGrandPrix"
 
+def getCatPath(cat_name,extension,phase_subdir):
+    return ("%s\\%s\\%s"+"/*.%s") % (working_dir,phase_subdir,cat_name,extension)
+
 baryName = ".\\data\\" # saved files dir
 
 # verbose options
@@ -75,10 +78,10 @@ for STEP in SEQUENCE:
     subdir = subDirDict[STEP]
 
     ## Establishing groundTruth
-    path_cat_1 = ("%s\\%s\\%s"+"/*.%s") % (working_dir,subdir,cat1,"jpg")
-    path_cat_2 = ("%s\\%s\\%s"+"/*.%s") % (working_dir,subdir,cat2,"jpg")
-    path_cat_3 = ("%s\\%s\\%s"+"/*.%s") % (working_dir,subdir,cat3,"jpeg")
-    path_cat_4 = ("%s\\%s\\%s"+"/*.%s") % (working_dir,subdir,cat4,"jpeg")
+    path_cat_1 = getCatPath(cat1,"jpg",subdir)
+    path_cat_2 = getCatPath(cat2,"jpg",subdir)
+    path_cat_3 = getCatPath(cat3,"jpeg",subdir)
+    path_cat_4 = getCatPath(cat4,"jpeg",subdir)
 
     if (verbose_files):
         print("Reading" + 4*"\n\t%s" % (path_cat_1,path_cat_2,path_cat_3,path_cat_4))
