@@ -143,11 +143,7 @@ for STEP in SEQUENCE:
         with open(baryName+'multiclass.bary', 'rb') as input:
             kmeans1 = pickle.load(input)
 
-        # kmeans1 = KMeans(n_clusters=k1, random_state=0, n_init=1, init=bary1).fit(sifts)
-
-        # print("before predict", kmeans1.labels_)
         labels = kmeans1.predict(sifts)
-        # print("after predict", labels)
 
 
 
@@ -167,8 +163,6 @@ for STEP in SEQUENCE:
             i+=1
         copyBow = tmpBow.copy()
         bows = np.append(bows, [copyBow], 0)
-    #if verbose:
-        # print("BOWs : ", bows)
 
     # ** Here was the culprit **
     BOWs = bows ###### preprocessing.normalize(bows)
