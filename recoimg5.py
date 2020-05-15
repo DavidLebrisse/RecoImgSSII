@@ -49,27 +49,14 @@ verbose_confusion = True
 
 ## Sequence variables
 
-CUSTOM = -1
-QUALIBRATE = 0
-EXPERIMENT = 1
-
-MODE = CUSTOM
-# MODE = QUALIBRATE
-# MODE = EXPERIMENT
-
 LEARN = 0
 VALIDATE = 1
 TEST = 2
 
 stepNameDict = {LEARN: "train",   VALIDATE: "valid",      TEST: "test"}
 subDirDict   = {LEARN: learn_subdir, VALIDATE: validation_subdir, TEST: test_subdir}
-modeSequenceDict = {
-    QUALIBRATE: [LEARN, VALIDATE],
-    EXPERIMENT: [LEARN, TEST],
-    CUSTOM:     [LEARN, VALIDATE, TEST]
-}
 
-SEQUENCE = modeSequenceDict[MODE]
+SEQUENCE = [LEARN, VALIDATE, TEST]
 
 ## Running sequence
 
